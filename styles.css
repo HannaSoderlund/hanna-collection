@@ -60,8 +60,5 @@ section {
     background-color: #ABC17A;
     color: white;
     transform: rotateY(180deg);
-}
-
-@media screen and (max-width: 600px) {
-
+    padding: 30px;
 }

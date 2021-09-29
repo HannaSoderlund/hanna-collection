@@ -9,18 +9,6 @@ $query = $db->prepare("SELECT `common-name`, `cultivar-name`, `family`, `likes`,
 $query->execute();
 $results = $query->fetchAll();
 
-//Create a loop over the results to echo out the various stats for each item
-
-//foreach($results as $vegetable) {
-//    echo
-//        $vegetable['common-name'] . ' - ' .
-//        $vegetable['cultivar-name'] . '<br>' .
-//        'Family: ' . $vegetable['family'] . ' - ' .
-//        'Likes: ' . $vegetable['likes'] . ' - ' . '<br>' .
-//        'Dislikes: ' . $vegetable['dislikes'] . ' - ' .'<br>' . '<br>';
-//}
-
-
 ?>
 
 <!DOCTYPE html>
@@ -46,17 +34,20 @@ $results = $query->fetchAll();
             $vegHtml .= '<div class="veg-card">';
             $vegHtml .= '<div class="veg-card-inner">';
             $vegHtml .= '<div class="veg-card-front">';
-            $vegHtml .= '<img src="https://cdn.britannica.com/16/187216-050-CB57A09B/tomatoes-tomato-plant-Fruit-vegetable.jpg" alt="a picture of a vegetable" style="width:300px; height:300px;">';
+            $vegHtml .= '<img src="/images" alt="a picture of a vegetable" style="width:300px; height:300px;">' . $vegetable['image'];
             $vegHtml .= '</div>';
             $vegHtml .= '<div class="veg-card-back">';
-            $vegHtml .= '<h3>' . $vegetable['common-name'] . '</h3>';
+            $vegHtml .= '<h3>' . $vegetable['common-name'] . ' - ' . $vegetable['cultivar-name'] . '</h3>';
+            $vegHtml .= '<p>' . 'Family: ' . $vegetable['family'] . '</p>';
+            $vegHtml .= '<p>' . 'Likes: ' . '<br>' . $vegetable['likes'] . '</p>';
+            $vegHtml .= '<p>' . 'Dislikes: ' . '<br>' . $vegetable['dislikes'] . '</p>';
             $vegHtml .= '</div>';
             $vegHtml .= '</div>';
             $vegHtml .= '</div>';
-
         }
 
         echo $vegHtml;
+
     ?>
 
     </section>
