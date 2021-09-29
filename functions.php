@@ -1,7 +1,7 @@
 <?php
 
 /** Connects the MySQL database 'hanna-collection', sets the fetch mode to FETCH_ASSOC
- * @return PDO
+ * @return PDO the database connection
  */
 function getDatabase() : PDO {
     $db = new PDO('mysql:host=db; dbname=hanna-collection', 'root', 'password');
@@ -10,8 +10,8 @@ function getDatabase() : PDO {
 }
 
 /** Retrieves the database records for fields common-name, cultivar-name, family, likes, dislikes, image.
- * @param $db
- * @return array
+ * @param $db the database connection
+ * @return array the vegetables returned from the database
  */
 function retrieveVeg($db) : array {
     $query = $db->prepare("SELECT `common-name`, `cultivar-name`, `family`, `likes`, `dislikes`, `image` FROM `vegetables`");
@@ -20,8 +20,8 @@ function retrieveVeg($db) : array {
 }
 
 /** Loops through the database and prints each record on a flipcard. If a record is empty, it prints an error message.
- * @param array $results
- * @return string
+ * @param array $results the results from the database
+ * @return string generated HTML containing vegetable info
  */
 function showVeg(array $results) : string {
     $vegHtml = '';
