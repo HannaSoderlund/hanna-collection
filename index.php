@@ -1,19 +1,29 @@
 <?php
 
-// create a PDO connection
-$db = new PDO('mysql:host=db; dbname=hanna-collection', 'root', 'password');
+require 'functions.php';
 
-// Write the SQL query to retrieve all the collection items
-$query = $db->prepare("SELECT * FROM `vegetables`");
-$query->execute();
-$results = $query->fetchAll();
+$db = getDatabase();
+$vegetables = retrieveVeg($db);
+$vegetableCard = showVeg($vegetables);
 
-//Create a loop over the results to echo out the various stats for each item
-foreach($results as $vegetable) {
-    echo $vegetable['id'] . ' - ' .
-        $vegetable['common-name'] . ' - ' .
-        $vegetable['cultivar-name'] . ' - ' .
-        $vegetable['family'] . ' - ' .
-        $vegetable['likes'] . ' - ' .
-        $vegetable['dislikes'] . ' - ' .'<br>';
-}
+?>
+
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <title>Hanna's Allotment Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <h1>Hanna's Allotment Planner</h1>
+    <section>
+    <?php echo $vegetableCard; ?>
+    </section>
+</body>
+</html>
