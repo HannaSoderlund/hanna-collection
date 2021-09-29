@@ -10,14 +10,17 @@ $query->execute();
 $results = $query->fetchAll();
 
 //Create a loop over the results to echo out the various stats for each item
-foreach($results as $vegetable) {
-    echo
-        $vegetable['common-name'] . ' - ' .
-        $vegetable['cultivar-name'] . '<br>' .
-        'Family: ' . $vegetable['family'] . ' - ' .
-        'Likes: ' . $vegetable['likes'] . ' - ' . '<br>' .
-        'Dislikes: ' . $vegetable['dislikes'] . ' - ' .'<br>' . '<br>';
-}
+
+//foreach($results as $vegetable) {
+//    echo
+//        $vegetable['common-name'] . ' - ' .
+//        $vegetable['cultivar-name'] . '<br>' .
+//        'Family: ' . $vegetable['family'] . ' - ' .
+//        'Likes: ' . $vegetable['likes'] . ' - ' . '<br>' .
+//        'Dislikes: ' . $vegetable['dislikes'] . ' - ' .'<br>' . '<br>';
+//}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -34,21 +37,28 @@ foreach($results as $vegetable) {
 <body>
 
     <h1>Hanna's Allotment Planner</h1>
-    <p>Something fetched from the db: <?php echo $vegetable['common-name']; ?></p>
+    <section>
+    <?php
 
-    <div class="veg-card">
-        <div class="veg-card-inner">
-            <div class="veg-card-front">
-                <img src="https://cdn.britannica.com/16/187216-050-CB57A09B/tomatoes-tomato-plant-Fruit-vegetable.jpg" alt="a picture of a vegetable" style="width:300px; height:300px;">
-            </div>
+        $vegHtml = '';
 
-            <div class="veg-card-back">
-                <h3>common-name - cultivar-name</h3>
-                <p>family: </p>
-                <p>likes: </p>
-                <p>dislikes: </p>
-             </div>
-         </div>
-    </div>
+        foreach($results as $vegetable) {
+            $vegHtml .= '<div class="veg-card">';
+            $vegHtml .= '<div class="veg-card-inner">';
+            $vegHtml .= '<div class="veg-card-front">';
+            $vegHtml .= '<img src="https://cdn.britannica.com/16/187216-050-CB57A09B/tomatoes-tomato-plant-Fruit-vegetable.jpg" alt="a picture of a vegetable" style="width:300px; height:300px;">';
+            $vegHtml .= '</div>';
+            $vegHtml .= '<div class="veg-card-back">';
+            $vegHtml .= '<h3>' . $vegetable['common-name'] . '</h3>';
+            $vegHtml .= '</div>';
+            $vegHtml .= '</div>';
+            $vegHtml .= '</div>';
+
+        }
+
+        echo $vegHtml;
+    ?>
+
+    </section>
 </body>
 </html>
