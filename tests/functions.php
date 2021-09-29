@@ -40,6 +40,12 @@ class functions extends TestCase {
         $this->assertEquals($expected, $case);
 }
 
+    public function testMalformedShowVeg() {
+        $testInput = "string";
+        $this->expectException(TypeError::class);
+        showVeg($testInput);
+    }
+
 }
 
 // edit function so that it displays an error if no input
