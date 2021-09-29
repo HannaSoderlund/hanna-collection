@@ -47,6 +47,3 @@ class functions extends TestCase {
     }
 
 }
-
-// edit function so that it displays an error if no input
-// create failure test testing expected as blank

@@ -1,26 +1,21 @@
 * {
     box-sizing: border-box;
 }
-
 body {
-
     background-color: #7FA25A;
     font-family: 'Open Sans', sans-serif;
     color: #EADBC0;
-
 }
 h1 {
     text-align: center;
     font-size: 3rem;
     margin-bottom: 80px;
 }
-
 section {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-
 .veg-card {
     background-color: transparent;
     width: 300px;
@@ -29,7 +24,6 @@ section {
     perspective: 1000px;
     font-family: 'Open Sans', sans-serif;
 }
-
 .veg-card-inner {
     position: relative;
     width: 100%;
@@ -38,11 +32,9 @@ section {
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
-
 .veg-card:hover .veg-card-inner {
     transform: rotateY(180deg);
 }
-
 .veg-card-front, .veg-card-back {
     position: absolute;
     width: 100%;
@@ -50,11 +42,9 @@ section {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
-
 .veg-card-front {
     background-color: transparent;
 }
-
 .veg-card-back {
     background-color: #ABC17A;
     color: white;
