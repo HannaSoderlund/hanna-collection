@@ -14,6 +14,9 @@ function retrieveVeg($db) : array {
 
 function showVeg(array $results) : string {
     $vegHtml = '';
+    if (empty($results)) {
+        $vegHtml = 'Error';
+    }
 
     foreach ($results as $vegetable) {
         $vegHtml .= '<div class="veg-card">';
