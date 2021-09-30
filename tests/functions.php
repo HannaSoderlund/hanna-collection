@@ -46,4 +46,25 @@ class functions extends TestCase {
         showVeg($testInput);
     }
 
+    public function testSuccessValidateSanitiseFormData() {
+        $testInput["common-name"] = ">";
+        $expected = ["common-name" => "&gt;"];
+        $case = validateSanitiseFormData($testInput);
+        $this->assertEquals($expected, $case);
+    }
+
+    // failure test: test what happens if enters empty string (but this can't happen as it is a req field?)
+    // test what
+    public function testFailureValidateSanitiseFormData() {
+        $testInput = [];
+        $expected = ['Error'];
+        $case = validateSanitiseFormData($testInput);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testMalformedValidateSanitiseFormData() {
+        $testInput = "string";
+        $this->expectException(TypeError::class);
+        validateSanitiseFormData($testInput);
+    }
 }

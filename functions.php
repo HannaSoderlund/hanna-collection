@@ -47,4 +47,22 @@ function showVeg(array $results) : string {
     return $vegHtml;
 }
 
+// create a function that takes the form input array, runs them through filter_var and returns the cleansed array
+/** Creates a new variable for the cleansed form data, loops through the form fields and cleanses them using htmlspecialchars()
+ * @param array $formInputArray the form input fields as an array
+ * @return array the cleansed form input fields as an associative array
+ */
+function validateSanitiseFormData(array $formInputArray) : array {
+    $cleansedFormArray = [];
+
+    if (empty($formInputArray)) {
+        $cleansedFormArray = ['Error']; // but it can't be empty!
+    }
+
+    foreach($formInputArray as $key=>$formField) {
+        $cleansedFormArray[$key] = htmlspecialchars($formField);
+    }
+    return $cleansedFormArray;
+}
+
 ?>
