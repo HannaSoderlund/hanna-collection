@@ -51,7 +51,7 @@ section {
     transform: rotateY(180deg);
     padding: 30px;
 }
-input {
+input, select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
