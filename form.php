@@ -19,32 +19,40 @@
     <form method="post" action="validation.php">
         <label for ="common-name">Common name:</label>
         <br>
-        <input type="text" id="common-name" name="common-name">
+        <input type="text" id="common-name" name="common-name" maxlength="255" placeholder="Vegetable name" required>
         <br>
         <br>
         <label for="cultivar-name">Cultivar name:</label>
         <br>
-        <input type="text" id="cultivar-name" name="cultivar-name">
+        <input type="text" id="cultivar-name" name="cultivar-name" maxlength="255" placeholder="Cultivar or variety" required>
         <br>
         <br>
         <label for ="family">Plant family:</label>
         <br>
-        <input type="text" id="family" name="family">
+        <select id="family" name="family" required>
+            <option value="Amarylidaceae">Amarylidaceae</option>
+            <option value="Apiaceae">Apiaceae</option>
+            <option value="Asteraceae">Asteraceae</option>
+            <option value="Brassicaceae">Brassicaceae</option>
+            <option value="Chenopodiaceae">Chenopodiaceae</option>
+            <option value="Fabaceae">Fabaceae</option>
+            <option value="Solanaceae">Solanaceae</option>
+        </select>
         <br>
         <br>
         <label for="likes">Likes:</label>
         <br>
-        <input type="text" id="likes" name="likes">
+        <input type="text" id="likes" name="likes" maxlength="255" placeholder="e.g. soil type, conditions" required>
         <br>
         <br>
         <label for=“dislikes”>Dislikes:</label>
         <br>
-        <input type="text" id="dislikes" name="dislikes">
+        <input type="text" id="dislikes" name="dislikes" maxlength="255" placeholder="e.g. particular pests" required>
         <br>
         <br>
         <label for="image">Specify file name:</label>
         <br>
-        <input type="text" id="image" name="image">
+        <input type="text" id="image" name="image" maxlength="255" placeholder="e.g. tomato.jpeg" required>
         <br>
         <br>
         <input type="submit" name="submit" value="Submit the vegetable!">
@@ -52,5 +60,3 @@
 </section>
 </body>
 </html>
-
-
