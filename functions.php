@@ -56,7 +56,7 @@ function validateSanitiseFormData(array $formInputArray) : array {
     $cleansedFormArray = [];
 
     if (empty($formInputArray)) {
-        $cleansedFormArray = ['Error']; // but it can't be empty!
+        $cleansedFormArray = ['Error'];
     }
 
     foreach($formInputArray as $key=>$formField) {
